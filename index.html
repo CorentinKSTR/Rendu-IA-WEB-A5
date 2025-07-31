@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MNIST Digit Classifier</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Classification MNIST</h1>
+      <p class="subtitle">
+        Dessinez un chiffre et laissez l'IA le reconnaître !
+      </p>
+
+      <div class="instructions">
+        <strong>Instructions :</strong> Dessinez un chiffre de 0 à 9 dans la
+        zone ci-dessous. L'IA analysera votre dessin en temps réel.
+      </div>
+
+      <div class="canvas-container">
+        <canvas id="drawingCanvas" width="280" height="280"></canvas>
+      </div>
+
+      <div class="controls">
+        <button id="clearBtn">Effacer</button>
+        <button id="loadModelBtn">Charger le modèle</button>
+      </div>
+
+      <div id="status" class="status loading">
+        Chargement du modèle en cours...
+      </div>
+
+      <div class="prediction-area">
+        <div class="prediction-result" id="predictionResult">
+          Dessinez un chiffre pour commencer
+        </div>
+
+        <div class="confidence-bars">
+          <div class="confidence-bar" data-digit="0">
+            <div class="confidence-label">0</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-0"></div>
+              <div class="confidence-text" id="text-0">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="1">
+            <div class="confidence-label">1</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-1"></div>
+              <div class="confidence-text" id="text-1">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="2">
+            <div class="confidence-label">2</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-2"></div>
+              <div class="confidence-text" id="text-2">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="3">
+            <div class="confidence-label">3</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-3"></div>
+              <div class="confidence-text" id="text-3">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="4">
+            <div class="confidence-label">4</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-4"></div>
+              <div class="confidence-text" id="text-4">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="5">
+            <div class="confidence-label">5</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-5"></div>
+              <div class="confidence-text" id="text-5">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="6">
+            <div class="confidence-label">6</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-6"></div>
+              <div class="confidence-text" id="text-6">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="7">
+            <div class="confidence-label">7</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-7"></div>
+              <div class="confidence-text" id="text-7">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="8">
+            <div class="confidence-label">8</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-8"></div>
+              <div class="confidence-text" id="text-8">0%</div>
+            </div>
+          </div>
+          <div class="confidence-bar" data-digit="9">
+            <div class="confidence-label">9</div>
+            <div class="confidence-value">
+              <div class="confidence-fill" id="conf-9"></div>
+              <div class="confidence-text" id="text-9">0%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
